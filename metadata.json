@@ -1,0 +1,6 @@
+{
+  "name": "GRIMSTONE '94: OVERDOSE - Isometric 2.5D Hotline Action",
+  "description": "Fast-paced isometric 2.5D Hotline Miami style supernatural action game with katana slashes, firearms, door breaches, executions, weapon throws, and Unity C# blueprints.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

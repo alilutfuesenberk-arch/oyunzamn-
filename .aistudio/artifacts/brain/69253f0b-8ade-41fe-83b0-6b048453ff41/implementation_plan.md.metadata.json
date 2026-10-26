@@ -1,0 +1,6 @@
+{
+  "summary":  "Updated enemy perception system: spotting player behind props or doors triggers passive investigation mode with a yellow exclamation mark (!), where the enemy cautiously moves towards the object or around the door without immediately firing, transitioning to red exclamation mark active chase only upon gaining clear unobstructed line of sight.",
+  "updatedAt":  "2026-10-26T13:35:46.708288615Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}
