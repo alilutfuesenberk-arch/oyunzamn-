@@ -36,9 +36,25 @@ export interface EnemyEntity {
   attackCooldown: number;
   knockdownTimer: number;
   alertTimer: number;
+  alertAnimTimer?: number;
+  prevAlertState?: EnemyState;
   investigateTarget?: { x: number; y: number } | null;
   investigateTimer?: number;
   facing: number;
+}
+
+export type DestructibleType = 'PLANT_POT' | 'FLOOR_LAMP' | 'GLASS_TABLE';
+
+export interface DestructibleProp {
+  id: number;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  type: DestructibleType;
+  hp: number;
+  isBroken: boolean;
+  brokenTimer?: number;
 }
 
 export interface DoorEntity {
@@ -66,12 +82,31 @@ export interface DroppedWeapon {
   angle: number;
 }
 
+export type BloodDecalType =
+  | 'PIXEL_POOL'
+  | 'PIXEL_SPLATTER'
+  | 'PIXEL_SPRAY'
+  | 'GIB_CHUNK'
+  | 'POOL'
+  | 'SPLATTER'
+  | 'CASING';
+
+export interface PixelBloodBlock {
+  dx: number;
+  dy: number;
+  w: number;
+  h: number;
+  color: string;
+}
+
 export interface BloodDecal {
   x: number;
   y: number;
   size: number;
   color: string;
-  type: 'POOL' | 'SPLATTER' | 'CASING';
+  type: BloodDecalType;
+  angle?: number;
+  blocks?: PixelBloodBlock[];
 }
 
 export type RunicMaskId = 'WOLF' | 'VAMPIRE' | 'MINOTAUR' | 'ELF';
@@ -82,6 +117,31 @@ export interface RunicMask {
   title: string;
   icon: string;
   bonus: string;
+  color: string;
+}
+
+export interface ShellCasing {
+  id: number;
+  x: number;
+  y: number;
+  z: number;
+  vx: number;
+  vy: number;
+  vz: number;
+  angle: number;
+  vAngle: number;
+  color: string;
+  bounces: number;
+  settled: boolean;
+  caliber: 'MAGNUM' | 'SHOTGUN' | 'SMG';
+}
+
+export interface BloodyFootprint {
+  x: number;
+  y: number;
+  angle: number;
+  alpha: number;
+  isLeft: boolean;
   color: string;
 }
 
@@ -101,4 +161,6 @@ export interface PlayerIsometricState {
   combo: number;
   comboTimer: number;
   mask: RunicMaskId;
+  bloodOnBoots?: number;
 }
+
